@@ -1,0 +1,32 @@
+.movie__card {
+  @include flexBlockItem($fB: 21%);
+  @include response($breakpoint: medium) {
+    @include flexBlockItem($fB: 45%);
+  }
+  @include response($breakpoint: small) {
+    @include flexBlockItem($fB: 70%);
+  }
+  height: 50vh;
+  position: relative;
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  img {
+    @include imageSetter($height: 50vh);
+  }
+  &:hover &--hidden {
+    @include flexBlock($direction: column, $aItems: center, $jContent: center);
+    text-align: center;
+    transition: all 0.2s;
+    background-color: rgba($color-purple, 0.9);
+    cursor: pointer;
+  }
+  &--hidden {
+    display: none;
+    @include abolutePosition($top: 0, $left: 0);
+
+    width: 100%;
+    height: 100%;
+  }
+}

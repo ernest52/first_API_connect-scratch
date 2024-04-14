@@ -1,0 +1,25 @@
+%navStyle {
+  background-color: var(--color-purple);
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+%navhover {
+  color: var(--color-gray);
+  background-color: var(--color-white);
+}
+
+%hoverSubmit {
+  color: var(--color-white);
+  background-color: var(--color-gray);
+}
+%Submit {
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+  border-radius: 1rem;
+}
+
+%inputFocus {
+  outline: 5px solid $color-gray;
+  border: 2px solid $color-purple;
+}

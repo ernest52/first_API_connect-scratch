@@ -1,0 +1,10 @@
+<nav class="nav__side">
+  <p class="actor  u-font-bigger">Actors</p>  <% if(locals.actors){ actors.forEach(actor=>{%>
+  <p class="actor  u-font-bigger"> <a class="actor__more" href="/series/actor/<%= actor.name+" "+actor.lastName %>"><%= actor.name+" "+actor.lastName %></a></p>
+
+  <% }) }%>
+  <form action="" id="searchActor">
+  <input type="text" id="searcher" name="searcher">
+  <input type="submit" class="submit" value="search Actor" >
+  </form>
+</nav>

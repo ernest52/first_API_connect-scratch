@@ -1,0 +1,68 @@
+@mixin giveMargin($mt: 0, $mr: 0, $mb: 0, $ml: 0) {
+  margin: $mt $mr $mb $ml;
+}
+@mixin givePadding($pt: 0, $pr: 0, $pb: 0, $pl: 0) {
+  padding: $pt $pr $pb $pl;
+}
+@mixin blockSetting(
+  $fSize: auto,
+  $bgc: inherit,
+  $lS: 0,
+  $color: $color-font--main,
+  $cursor: default,
+  $width: auto,
+  $tAlign: left
+) {
+  width: $width;
+  background-color: $bgc;
+  color: $color;
+  font-size: $fSize;
+  text-align: $tAlign;
+  letter-spacing: $lS;
+
+  cursor: $cursor;
+}
+@mixin flexBlock(
+  $direction: row,
+  $wrap: nowrap,
+  $jContent: flex-start,
+  $aItems: stretch,
+  $aContent: flex-start
+) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $jContent;
+  align-items: $aItems;
+  align-content: $aContent;
+}
+@mixin flexBlockItem($fG: 0, $fS: 0, $fB: auto) {
+  flex: $fG $fS $fB;
+}
+
+@mixin abolutePosition($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  left: $left;
+  bottom: $bottom;
+}
+
+@mixin imageSetter($d: block, $width: 100%, $height: auto) {
+  display: $d;
+  width: $width;
+  height: $height;
+}
+
+@mixin response($breakpoint) {
+  @if ($breakpoint==medium) {
+    @media only screen and (max-width: $medium) {
+      @content;
+    }
+  }
+  @if ($breakpoint==small) {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  }
+}

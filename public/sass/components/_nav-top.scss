@@ -1,0 +1,56 @@
+.nav__top {
+  grid-area: nav-top;
+  @extend %navStyle;
+  @include flexBlock($wrap: wrap, $jContent: space-between, $aItems: center);
+
+  .movie__genre {
+    @include flexBlock($aItems: center, $jContent: center);
+    @include flexBlockItem($fB: 15%);
+    @include blockSetting($lS: 3px, $bgc: var(--color-gray), $cursor: pointer);
+    @include givePadding($pt: 1rem, $pb: 1rem, $pl: 1rem, $pr: 1rem);
+
+    @include giveMargin($mr: 1rem, $ml: 1rem);
+    @include response($breakpoint: medium) {
+      @include giveMargin($mr: 1rem, $ml: 1rem, $mt: 1rem, $mb: 1rem);
+      padding: 2rem;
+      @include response($breakpoint: small) {
+        width: 100%;
+        padding: 1rem;
+        margin: 1rem 0;
+      }
+    }
+
+    &:hover {
+      @extend %navhover;
+    }
+  }
+  @include response($breakpoint: medium) {
+    @include flexBlock($direction: column);
+    padding-bottom: 10rem;
+  }
+
+  #searchSerie {
+    margin: 1rem 2rem;
+    text-align: right;
+    flex-basis: 100%;
+    @include response($breakpoint: small) {
+      text-align: center;
+      margin: 1rem 0;
+    }
+
+    // background-color: green;
+    // @include response($breakpoint: medium) {
+    //   text-align: right;
+    // }
+    #searchSerieText:focus {
+      @extend %inputFocus;
+    }
+    .submit {
+      @include giveMargin($mt: 1rem, $ml: 1rem);
+      @extend %Submit;
+      &:hover {
+        @extend %hoverSubmit;
+      }
+    }
+  }
+}

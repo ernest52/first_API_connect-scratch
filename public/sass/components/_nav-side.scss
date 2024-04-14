@@ -1,0 +1,65 @@
+.nav__side {
+  grid-area: nav-side;
+  @extend %navStyle;
+  @include flexBlock(
+    $direction: column,
+    $aItems: stretch,
+    // $jContent: space-between
+    $jContent: flex-start
+  );
+  @include response($breakpoint: medium) {
+    padding: 1rem;
+  }
+  @include response($breakpoint: small) {
+    padding: 0;
+    margin: 0;
+  }
+
+  .actor {
+    @include blockSetting($width: 90%, $lS: 3px, $tAlign: center);
+    margin: 1rem;
+
+    @include flexBlock($jContent: center, $aItems: center);
+    &:not(:first-child) {
+      background-color: var(--color-gray);
+      &:hover {
+        @extend %navhover;
+      }
+    }
+    @include response($breakpoint: small) {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__more {
+      padding: 2rem;
+      @include response($breakpoint: small) {
+        padding: 1rem;
+      }
+    }
+    @include response($breakpoint: medium) {
+      width: 100%;
+      margin: 1rem 0;
+    }
+  }
+  #searchActor {
+    margin: 1rem;
+    text-align: center;
+    @include response($breakpoint: medium) {
+      text-align: right;
+    }
+    @include response($breakpoint: small) {
+      text-align: center;
+    }
+    #searcher:focus {
+      @extend %inputFocus;
+    }
+    .submit {
+      @include giveMargin($mt: 1rem);
+      @extend %Submit;
+      &:hover {
+        @extend %hoverSubmit;
+      }
+    }
+  }
+}

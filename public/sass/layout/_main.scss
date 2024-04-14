@@ -1,0 +1,54 @@
+.main {
+  grid-area: main;
+
+  @include flexBlock(
+    $wrap: wrap,
+    $jContent: space-around,
+    $aItems: flex-start,
+    $aContent: flex-start
+  );
+  padding-top: 1rem;
+  &__simple {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-areas:
+      ". name"
+      "img text";
+    background-color: $color-gray;
+    @include response($breakpoint: small) {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, min-content);
+      grid-template-areas:
+        "name"
+        "img"
+        "text";
+    }
+    &--name {
+      grid-area: name;
+      font-weight: bold;
+      text-align: center;
+    }
+    &--image {
+      grid-area: img;
+
+      @include imageSetter($height: 100%);
+      padding: 1rem;
+    }
+    &--text {
+      grid-area: text;
+
+      @include response($breakpoint: small) {
+        padding: 0.5rem;
+      }
+
+      p {
+        margin-top: 1rem;
+        a {
+          color: $color-gray--light;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<main class="main">
+  <% if((locals.simple || locals.actor)&&locals.actors){%>
+  <div class="main__simple">
+    <div class="main__simple--name u-font-biggest">
+      <%= locals.simple?.name || locals.actor?.name %>
+    </div>
+    <img
+      class="main__simple--image"
+      src="<%=locals.simple?.image.medium ||locals.actor?.image.medium  %>"
+      alt="poster of <%= locals.simple?.name || locals.actor?.name %>"
+    />
+    <div class="main__simple--text">
+      <%- locals.simple?.text || locals.actors[locals.index].text.info %>3
+      <p>
+        <% if(locals.simple){%> more infos
+        <a href="<%= simple.more%>" target="_blank">here</a>
+        <%}else{ %> text comes from wikipedia whole article is available
+        <a href="<%= actors[locals.index]?.text.url%>" target="_blank">here</a>
+        more infos <a href="<%= actor?.more%>" target="_blank">here</a>
+        <%} %>
+      </p>
+    </div>
+  </div>
+
+  <%} %>
+</main>

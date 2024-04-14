@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+:root {
+  --color-red: #700;
+  --color-gray: gray;
+  --color-white: white;
+  --color-purple: purple;
+  --color-gold: gold;
+  --color-font--main: #fff;
+  --font-size: 1.2rem;
+}
+html {
+  font-size: 62.5%; //10px
+  @include response($breakpoint: medium) {
+    font-size: 50%; //8px
+  }
+  @include response($breakpoint: small) {
+    font-size: 31.25%; //5px
+  }
+  box-sizing: border-box;
+  color: var(--color-font--main);
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: minmax(min-content, 20vw) 1fr;
+  grid-template-rows: repeat(2, min-content);
+  grid-template-areas:
+    "nav-top nav-top"
+    "nav-side main";
+  @include response($breakpoint: medium) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "nav-top"
+      "nav-side"
+      "main";
+  }
+  background-color: var(--color-gray);
+}
